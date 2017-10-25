@@ -1,3 +1,20 @@
 page-home {
 
+  .scroll-content {
+    background-image: url(../assets/imgs/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+  }
+
+  .logo {
+    background-image: url(../assets/imgs/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 300px;
+    height: 300px;
+
+    margin: 0 auto;
+  }
+
 }
