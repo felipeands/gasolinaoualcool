@@ -8,14 +8,14 @@
 
       <div class="gas price">
         <label for="gas" class="ico"></label>
-        <input type="tel" id="gas" placeholder="Gasolina" [(ngModel)]="gas" name="gas" />
+        <input type="tel" id="gas" placeholder="Gasolina" [(ngModel)]="gas" name="gas" (keyup)="onGasKeyUp()" />
       </div>
       <!-- .gas -->
 
       <div class="x">x</div>
 
       <div class="eth price">
-        <input type="tel" id="eth" placeholder="Etanol" [(ngModel)]="eth" name="eth" />
+        <input type="tel" id="eth" placeholder="Etanol" [(ngModel)]="eth" name="eth" (keyup)="onEthKeyUp()"/>
         <label for="eth" class="ico"></label>
       </div>
       <!-- .eth -->
@@ -31,7 +31,7 @@
   <div class="result" [hidden]="!isDisplayResult">
     <div class="text">
       Abasteça com:
-      <span [class]="best">{{best}}</span>
+      <span [class]="bestChoice">{{bestChoice}}</span>
     </div>
     <button ion-button block (click)="onClickReset()">Voltar</button>
   </div>
