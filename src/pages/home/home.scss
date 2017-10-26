@@ -1,9 +1,21 @@
 page-home {
 
+  .content.result {
+    .scroll-content {
+      background-position: right;
+    }
+
+    .logo {
+      width: 200px;
+      height: 180px;
+    }
+  }
+
   .scroll-content {
     background-image: url(../assets/imgs/bg.jpg);
     background-repeat: no-repeat;
     background-size: auto 100%;
+    transition: 1s all;
   }
 
   .logo {
@@ -12,9 +24,66 @@ page-home {
     background-size: contain;
 
     width: 300px;
-    height: 300px;
+    height: 250px;
 
     margin: 0 auto;
+    transition: 0.4s all;
+  }
+
+  .prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    .price {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;    
+
+      input {
+        width: 90px;
+        margin: 10px;
+        border: 2px solid color($colors, dark, base);
+        border-radius: 5px;
+        padding: 10px 5px;
+        text-align: center;
+        font-size: 1.3em;
+      }
+    }
+
+    .ico {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 50px;
+      width: 50px;
+    }
+
+    .gas {
+      .ico { background-image: url(../assets/icon/gas.png); }
+      input { border-color: color($colors, primary, base); }
+    }
+
+    .eth {
+      .ico { background-image: url(../assets/icon/eth.png); }
+      input { border-color: color($colors, secondary, base); }
+    }
+
+  }
+
+
+  .result {
+    .text {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.4em;
+
+      span { 
+        font-weight: bold; 
+      }
+    }
+
   }
 
 }

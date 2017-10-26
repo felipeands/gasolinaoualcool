@@ -1,5 +1,40 @@
-<ion-content padding>
-  
+<ion-content padding [class.result]="isDisplayResult">
+
   <div class="logo"></div>
+
+  <div class="form" [hidden]="isDisplayResult">
+
+    <div class="prices">
+
+      <div class="gas price">
+        <label for="gas" class="ico"></label>
+        <input type="tel" id="gas" placeholder="Gasolina" [(ngModel)]="gas" name="gas" />
+      </div>
+      <!-- .gas -->
+
+      <div class="x">x</div>
+
+      <div class="eth price">
+        <input type="tel" id="eth" placeholder="Etanol" [(ngModel)]="eth" name="eth" />
+        <label for="eth" class="ico"></label>
+      </div>
+      <!-- .eth -->
+
+    </div>
+    <!-- .prices -->
+
+    <button ion-button block (click)="onClickCalc()" [disabled]="!eth || !gas">Calcular</button>
+
+  </div>
+  <!-- .form -->
+
+  <div class="result" [hidden]="!isDisplayResult">
+    <div class="text">
+      Abasteça com:
+      <span [class]="best">{{best}}</span>
+    </div>
+    <button ion-button block (click)="onClickReset()">Voltar</button>
+  </div>
+  <!-- .result -->
 
 </ion-content>

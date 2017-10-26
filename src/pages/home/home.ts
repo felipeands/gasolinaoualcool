@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +6,22 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  public eth: number;
+  public gas: number;
+  public best: string;
+  public isDisplayResult: boolean;
 
+  constructor() { }
+
+  onClickCalc() {
+    this.isDisplayResult = true;
+    this.best = (this.gas * 0.7 <= this.eth) 
+    ? 'Gasolina'
+    : 'Etanol';
+  }
+
+  onClickReset() {
+    this.isDisplayResult = false;
   }
 
 }
