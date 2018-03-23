@@ -12,6 +12,7 @@ export class HomePage {
   public gas: string;
   public bestChoice: string;
   public isDisplayResult: boolean;
+  public calcResult: number;
 
   constructor(private helperProvider: HelperProvider) { }
 
@@ -31,7 +32,8 @@ export class HomePage {
     }
 
     this.helperProvider.saveValues(this.gas, this.eth);
-    this.bestChoice = (cleanValues.gas * 0.7 <= cleanValues.eth)
+    this.calcResult = cleanValues.gas * 0.7;
+    this.bestChoice = (this.calcResult * 0.7 <= cleanValues.eth)
       ? 'Gasolina'
       : 'Etanol';
   }
