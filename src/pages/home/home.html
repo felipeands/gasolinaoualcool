@@ -30,8 +30,9 @@
 
   <div class="result" [hidden]="!isDisplayResult">
     <div class="text">
-      Pronto chefia!<br/>Abasteça com:
+      Pronto chefia!<br/>Melhor abastecer com:
       <span [class]="bestChoice">{{bestChoice}}</span>
+      <div class="percentage">{{diference}}</div>
     </div>
     <button ion-button block (click)="onClickReset()">Voltar</button>
   </div>

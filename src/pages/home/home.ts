@@ -11,6 +11,7 @@ export class HomePage {
   public eth: string;
   public gas: string;
   public bestChoice: string;
+  public diference: number;
   public isDisplayResult: boolean;
 
   constructor(private helperProvider: HelperProvider) { }
