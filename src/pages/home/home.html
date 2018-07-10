@@ -31,8 +31,9 @@
   <div class="result" [hidden]="!isDisplayResult">
     <div class="text">
       Pronto chefia!<br/>Melhor abastecer com:
-      <span [class]="bestChoice">{{bestChoice}}</span>
-      <div class="percentage">{{diference}}</div>
+      <span class="choice">{{bestChoice}}</span>
+      <div class="percentage" *ngIf="difference > 0"><b>{{difference}}%</b> de diferença.</div>
+      <div class="quantity" *ngIf="differenceQuantity > 0">Aprox. <b>{{differenceQuantity}}</b> litros a mais.</div>
     </div>
     <button ion-button block (click)="onClickReset()">Voltar</button>
   </div>

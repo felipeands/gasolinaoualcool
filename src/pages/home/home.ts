@@ -11,7 +11,8 @@ export class HomePage {
   public eth: string;
   public gas: string;
   public bestChoice: string;
-  public diference: number;
+  public difference: number = 0;
+  public differenceQuantity: number = 0;
   public isDisplayResult: boolean;
 
   constructor(private helperProvider: HelperProvider) { }
@@ -31,10 +32,24 @@ export class HomePage {
       eth: this.helperProvider.toInt(this.eth)
     }
 
+    cleanValues.gas = cleanValues.gas * 0.7;
+
     this.helperProvider.saveValues(this.gas, this.eth);
-    this.bestChoice = (cleanValues.gas * 0.7 <= cleanValues.eth)
-      ? 'Gasolina'
-      : 'Etanol';
+
+      if (cleanValues.gas <= cleanValues.eth) {
+
+        this.difference = (cleanValues.eth - cleanValues.gas) / cleanValues.gas * 100; 
+        this.bestChoice = 'Gasolina';
+
+      } else {
+
+        this.difference = (cleanValues.gas - cleanValues.eth) / cleanValues.eth * 100; 
+        this.bestChoice = 'Etanol';
+
+      }
+
+      this.difference = Math.round(this.difference);
+      this.differenceQuantity = (this.difference * 44) / 100;
   }
 
   onClickReset() {
