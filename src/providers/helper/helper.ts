@@ -47,4 +47,8 @@ export class HelperProvider {
     return parseInt(string.replace(/[\D]+/g, ''));
   }
 
+  clearNumber(string: string) : number {
+    return Number(string.replace(',', '.'));
+  }
+
 }

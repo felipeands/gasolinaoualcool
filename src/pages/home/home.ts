@@ -13,6 +13,8 @@ export class HomePage {
   public bestChoice: string;
   public difference: number = 0;
   public differenceQuantity: number = 0;
+  public differenceReal: number = 0;
+  public differenceRealText: string;
   public isDisplayResult: boolean;
 
   constructor(private helperProvider: HelperProvider) { }
@@ -28,8 +30,8 @@ export class HomePage {
     this.isDisplayResult = true;
 
     const cleanValues = {
-      gas: this.helperProvider.toInt(this.gas),
-      eth: this.helperProvider.toInt(this.eth)
+      gas: this.helperProvider.clearNumber(this.gas),
+      eth: this.helperProvider.clearNumber(this.eth)
     }
 
     cleanValues.gas = cleanValues.gas * 0.7;
@@ -50,6 +52,8 @@ export class HomePage {
 
       this.difference = Math.round(this.difference);
       this.differenceQuantity = (this.difference * 44) / 100;
+      this.differenceReal = (cleanValues.gas <= cleanValues.eth) ? this.differenceQuantity * cleanValues.gas : this.differenceQuantity * cleanValues.eth;
+      this.differenceRealText = (this.differenceReal).toFixed(2).replace('.', ',');
   }
 
   onClickReset() {
